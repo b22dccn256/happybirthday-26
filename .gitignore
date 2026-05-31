@@ -1,4 +1,9 @@
+/happybirthday-AI
+/happybirthday-tree
+/happybirthday
+/happybirthday-GF
+.gitignore
 node_modules/
-.vscode/
-package.json
-package-lock.json
+.git/
+*.log
+/node_modules
