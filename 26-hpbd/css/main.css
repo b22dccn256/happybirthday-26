@@ -79,16 +79,16 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap: 12px; /* Tăng gap một chút tương ứng với kích thước mới */
+    gap: 14px; /* Tăng gap thêm 10% */
 }
 .polaroid {
     background: white; padding: 8px 8px 25px 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-radius: 2px; width: 145px; /* Zoom to ảnh lên */
+    border-radius: 2px; width: 160px; /* Tăng kích thước ảnh thêm 10% */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
     cursor: pointer; position: relative; 
     transform-origin: center center;
-    margin: 6px; 
+    margin: 8px; 
 }
 .polaroid:nth-child(even) { transform: rotate(4deg); }
 .polaroid:nth-child(odd) { transform: rotate(-4deg); }
@@ -97,12 +97,12 @@ body {
 .polaroid:nth-child(5n) { transform: rotate(2deg); }
 
 .polaroid:hover {
-    transform: scale(1.8) rotate(0deg) !important; /* Giảm scale hover xuống 1.8 vì ảnh gốc đã to hơn */
+    transform: scale(1.6) rotate(0deg) !important; /* Điều chỉnh tỷ lệ hover */
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     z-index: 100 !important;
 }
 .photo {
-    width: 100%; height: 125px; background-color: #ddd; /* Tăng chiều cao ảnh tương ứng */
+    width: 100%; height: 138px; background-color: #ddd; /* Tăng chiều cao thêm 10% */
     object-fit: cover;
     position: relative; overflow: hidden;
 }
@@ -113,7 +113,7 @@ body {
     pointer-events: none;
 }
 .caption {
-    font-family: 'Dancing Script', cursive; font-size: 1.1rem; /* Tăng chữ to lên */
+    font-family: 'Dancing Script', cursive; font-size: 1.2rem; /* Tăng font-size thêm 10% */
     text-align: center; margin-top: 8px; color: #333;
 }
 
