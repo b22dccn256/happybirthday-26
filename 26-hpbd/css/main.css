@@ -1,0 +1,143 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Patrick Hand', sans-serif;
+    overflow: hidden;
+    background-color: #fdfbf7;
+    color: #333;
+    height: 100vh;
+}
+
+#landing-page-container {
+    width: 100vw;
+    height: 100vh;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    will-change: transform;
+}
+
+/* Stage Management */
+.stage {
+    position: relative;
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Music Toggle */
+.music-btn {
+    position: fixed; top: 20px; right: 20px; z-index: 1000;
+    background: white; border: none; border-radius: 50%;
+    width: 40px; height: 40px; cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+}
+.music-btn svg { width: 24px; height: 24px; fill: #555; }
+.music-btn.playing { animation: spin 4s linear infinite; }
+.music-btn.playing svg { fill: #ff69b4; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Button Stage 1 */
+.next-stage-btn-container {
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0; visibility: hidden;
+    z-index: 100;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #ff8c00, #ffb347); /* Gradient cam rực rỡ */
+    color: white; border: none; padding: 15px 40px;
+    font-size: 1.3rem; border-radius: 50px; cursor: pointer;
+    font-family: 'Outfit', sans-serif; font-weight: 600;
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    letter-spacing: 1px;
+}
+.btn-primary:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 12px 30px rgba(255, 140, 0, 0.6); 
+}
+
+/* Stage 3 Gallery */
+#stage-3 {
+    background-color: #f4efe6;
+    padding: 30px 20px;
+    overflow: hidden; /* Tắt cuộn để xem gọn trên 1 màn hình */
+}
+.memories-title {
+    text-align: center; font-family: 'Dancing Script', cursive;
+    font-size: 3rem; color: #5a4a42; margin-bottom: 20px;
+}
+.gallery {
+    width: 95vw; 
+    max-width: 1600px; /* Tăng max-width để giữ nguyên số lượng ảnh mỗi hàng khi zoom */
+    height: calc(100vh - 150px);
+    margin: 0 auto;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 12px; /* Tăng gap một chút tương ứng với kích thước mới */
+}
+.polaroid {
+    background: white; padding: 8px 8px 25px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 2px; width: 145px; /* Zoom to ảnh lên */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+    cursor: pointer; position: relative; 
+    transform-origin: center center;
+    margin: 6px; 
+}
+.polaroid:nth-child(even) { transform: rotate(4deg); }
+.polaroid:nth-child(odd) { transform: rotate(-4deg); }
+.polaroid:nth-child(3n) { transform: rotate(7deg); }
+.polaroid:nth-child(4n) { transform: rotate(-6deg); }
+.polaroid:nth-child(5n) { transform: rotate(2deg); }
+
+.polaroid:hover {
+    transform: scale(1.8) rotate(0deg) !important; /* Giảm scale hover xuống 1.8 vì ảnh gốc đã to hơn */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    z-index: 100 !important;
+}
+.photo {
+    width: 100%; height: 125px; background-color: #ddd; /* Tăng chiều cao ảnh tương ứng */
+    object-fit: cover;
+    position: relative; overflow: hidden;
+}
+/* Grain effect for photo */
+.photo::after {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.15"/></svg>');
+    pointer-events: none;
+}
+.caption {
+    font-family: 'Dancing Script', cursive; font-size: 1.1rem; /* Tăng chữ to lên */
+    text-align: center; margin-top: 8px; color: #333;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.9); z-index: 2000;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: opacity 0.3s;
+}
+.lightbox.active { opacity: 1; visibility: visible; }
+.close-lightbox {
+    position: absolute; top: 20px; right: 30px; font-size: 40px;
+    color: white; cursor: pointer;
+}
+.lightbox-content {
+    background: white; padding: 20px 20px 60px 20px;
+    max-width: 90vw; max-height: 90vh; border-radius: 4px;
+}
+.lightbox-photo {
+    width: 600px; height: 600px; max-width: 100%; max-height: 70vh;
+    background-color: #ccc; position: relative;
+}
+.lightbox-caption {
+    font-family: 'Dancing Script', cursive; font-size: 2rem;
+    text-align: center; margin-top: 20px;
+}

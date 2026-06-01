@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng sinh nhật!!! :)</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Outfit:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Patrick+Hand&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="tree-assets/default.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cake.css">
+
+    <!-- Tree Assets JS -->
+    <script type="text/javascript" src="tree-assets/jquery.min.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex.min.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex-parser.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex-jit.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex-async.min.js"></script>
+    <script type="text/javascript" src="tree-assets/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="tree-assets/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="tree-assets/love.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <!-- Music toggle button -->
+    <button id="musicToggle" class="music-btn">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7.5c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+        </svg>
+    </button>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" preload="auto">
+        <source src="music/hpbd.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="landing-page-container">
+        <!-- STAGE 1: The Intro (Tree & Typewriter) -->
+        <div id="stage-1" class="stage active" style="background-color: #fdfbf7;">
+            <div id="main"
+                style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                <div id="wrap" style="position: relative; width: 1100px; height: 680px;">
+                    <div id="text">
+                        <div id="code">
+                            <div
+                                style="color: #333; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6; letter-spacing: 0.2px;">
+                                <h1
+                                    style="font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 3.5rem; margin: 0 0 15px 0; color: #d49547; letter-spacing: 2px;">
+                                    Gửi lyliin__ nè</h1>
+                                <p style="margin: 0 0 10px 0;">Hôm nay là một ngày đặc biệt vì 22 năm trước có một em bé
+                                    vừa được sinh ra.</p>
+                                <p style="margin: 0 0 10px 0;">Năm nay em bé này đã lớn rồi nhưng mà tụi mình thì trong
+                                    mắt nhau vẫn là con nít thoi he.</p>
+                                <p style="margin: 0 0 10px 0;">Mà là con nít với một trí óc trưởng thành.</p>
+                                <p style="margin: 0 0 10px 0;">Số 22 là số rất đẹp, chúng tớ mong tuổi 22 của cậu của
+                                    đẹp đẽ như thế.</p>
+                                <p style="margin: 0 0 10px 0;">Gặt hái những thành quả xứng đáng với sự cố gắng của mình
+                                    và lúc nào cũng vui vẻ, hạnh phúc và khoẻ mạnh nhaaaa.</p>
+                                <p style="margin: 0 0 10px 0;">Chúc mọi điều tốt đẹp đến với emm nhaa.</p>
+                                <p style="margin: 0 0 15px 0;">Chúc thêm một cái nữa, chuyện tình cảm thuận buồn xuôi
+                                    gió và cán đích thật ngoạn mục!!</p>
+                                <p style="margin: 0;">-- 22 fwl --</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="clock-box">
+                        <span class="STYLE1"></span>
+                        <font color="#33CC00"></font>
+                        <span class="STYLE1"></span>
+                    </div>
+                    <canvas id="canvas" width="1100" height="680"></canvas>
+                </div>
+            </div>
+            <!-- Nút chuyển Stage 2 -->
+            <div class="next-stage-btn-container" style="z-index: 1000; position: absolute; bottom: 50px; width: 100%;">
+                <button id="toStage2Btn" class="btn-primary">Cùng bước sang tuổi 22 nhaaa</button>
+            </div>
+        </div>
+
+        <!-- STAGE 2: The Wish (Cake & Candles) -->
+        <div id="stage-2" class="stage elegant-stage">
+            <div class="bokeh-container">
+                <div class="bokeh"></div>
+                <div class="bokeh"></div>
+                <div class="bokeh"></div>
+                <div class="bokeh"></div>
+                <div class="bokeh"></div>
+            </div>
+            <div class="stage2-content">
+                <h1 class="elegant-title">Chúc mừng sinh nhật!</h1>
+
+                <div class="cake-wrapper">
+                    <div class="cake-stand">
+                        <div class="stand-top"></div>
+                        <div class="stand-leg"></div>
+                        <div class="stand-base"></div>
+                    </div>
+
+                    <div class="cake">
+                        <div class="candles">
+                            <div class="elegant-candle" id="candle-1">
+                                <div class="flame"></div>
+                            </div>
+                            <div class="elegant-candle" id="candle-2">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        <div class="tier tier-3">
+                            <div class="frosting"></div>
+                            <div class="gold-accent ga1"></div>
+                            <div class="gold-accent ga2"></div>
+                        </div>
+                        <div class="tier tier-2">
+                            <div class="frosting"></div>
+                            <div class="gold-accent ga3"></div>
+                            <div class="gold-accent ga4"></div>
+                        </div>
+                        <div class="tier tier-1">
+                            <div class="frosting"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-make-wish" id="btnMakeWish">Make a Wish</button>
+                <p class="mic-hint">(Click hoặc thổi vào micro để tắt nến)</p>
+            </div>
+        </div>
+
+        <!-- STAGE 3: Memory Lane (Polaroid Album) -->
+        <div id="stage-3" class="stage">
+            <h2 class="memories-title">Thước Phim Kỷ Niệm</h2>
+            <div class="gallery">
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/19da73e9-2240-41c3-90bc-8122114fb750.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Ngày đầu tiên...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/1dc285d9-1b2d-4a46-ab2d-7efca2a85d1d.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Những chuyến đi...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/1e8e3371-bdbd-4ef0-ac1f-ded8c235d18f.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Nụ cười ấy...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/2eaddcc2-5644-4d61-bdf2-35b12632c80e.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Thanh xuân...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/31c6ebdc-545e-413f-bac0-1cdace3f1fce.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Bình yên...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/37a59504-a8c9-4477-8fe3-987fbcbeb6eb.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Lấp lánh...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/40cd6a8c-d3ed-48cd-80cb-deba09075e42.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Đáng nhớ...</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/44bcba38-1706-42f3-b219-b53048e90699.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Tuổi 22 tuyệt vời!</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/46211d9d-7f9e-4417-a510-f4108abac787.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Rạng rỡ</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/566628f3-ddbd-4e7c-aeef-ae3ca600e56d.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Hạnh phúc</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/65e07d04-4329-4790-8862-bb4257a6f0b0.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Bên nhau</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/67d54426-8eac-457c-809d-6a6569fdbcae.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Kỷ niệm</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/715eb657-55b2-4af0-a75d-2f45206f2188.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Yêu thương</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/7518b39f-0bd4-4b46-bde4-25fc107c8e35.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Một ngày nắng</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/9114126e-99dc-4b8f-b5b2-5c9e9f6c68fa.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Dịu dàng</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/b8a19367-42c1-46bd-943a-3b0f148c0c48.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Bạn thân</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/c2339ec9-2761-4d71-bfd1-91b92212b81a.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Lung linh</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/e0174841-8dc5-4b46-ae3a-54cd90a2784b.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Say đắm</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/e855c63f-0024-402b-a3c6-c3916aa6b606.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Tuyệt sắc</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/f804ea96-40d8-4a34-8a25-d7a03ff11352.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Mộng mơ</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/fe0a190c-f2f2-4572-9c1f-f8c98080ec17.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Nàng thơ</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/z6882970592800_6249f39d1e368421f5f3a4ddef63fc25.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Vui vẻ</div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo" style="background-image: url('img/z7890480609951_fcc60fac7dc313c6c19ed537c8d5404c.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="caption">Kỷ niệm đẹp</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <div class="lightbox-photo placeholder"
+                style="background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
+            <p class="lightbox-caption">Caption</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Inline Tree Animation -->
+    <script>
+        (function () {
+            var canvas = $('#canvas');
+            if (!canvas[0] || !canvas[0].getContext) {
+                console.error("Canvas context error");
+                return false;
+            }
+
+            var width = canvas.width();
+            var height = canvas.height();
+            canvas.attr("width", width);
+            canvas.attr("height", height);
+            var opts = {
+                seed: {
+                    x: width / 2 - 20,
+                    color: "rgb(190, 26, 37)",
+                    scale: 2
+                },
+                branch: [
+                    [535, 680, 570, 250, 500, 200, 30, 100, [
+                        [540, 500, 455, 417, 340, 400, 13, 100, [
+                            [450, 435, 434, 430, 394, 395, 2, 40]
+                        ]],
+                        [550, 445, 600, 356, 680, 345, 12, 100, [
+                            [578, 400, 648, 409, 661, 426, 3, 80]
+                        ]],
+                        [539, 281, 537, 248, 534, 217, 3, 40],
+                        [546, 397, 413, 247, 328, 244, 9, 80, [
+                            [427, 286, 383, 253, 371, 205, 2, 40],
+                            [498, 345, 435, 315, 395, 330, 4, 60]
+                        ]],
+                        [546, 357, 608, 252, 678, 221, 6, 100, [
+                            [590, 293, 646, 277, 648, 271, 2, 80]
+                        ]]
+                    ]]
+                ],
+                bloom: {
+                    num: 700,
+                    width: 1080,
+                    height: 650,
+                },
+                footer: {
+                    width: 1200,
+                    height: 5,
+                    speed: 10,
+                }
+            }
+
+            var tree = new Tree(canvas[0], width, height, opts);
+            var seed = tree.seed;
+            var foot = tree.footer;
+            var hold = 1;
+
+            canvas.click(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                if (seed.hover(x, y)) {
+                    hold = 0;
+                    canvas.unbind("click");
+                    canvas.unbind("mousemove");
+                    canvas.removeClass('hand');
+
+                    if (typeof window.toggleMusic === "function" && !window.isPlaying) {
+                        window.toggleMusic();
+                    }
+                }
+            }).mousemove(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                canvas.toggleClass('hand', seed.hover(x, y));
+            });
+
+            var seedAnimate = eval(Jscex.compile("async", function () {
+                seed.draw();
+                while (hold) {
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canScale()) {
+                    seed.scale(0.95);
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canMove()) {
+                    seed.move(0, 2);
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
+            }));
+
+            var growAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.grow();
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canGrow());
+            }));
+
+            var flowAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.flower(2);
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canFlower());
+            }));
+
+            var moveAnimate = eval(Jscex.compile("async", function () {
+                tree.snapshot("p1", 240, 0, 610, 680);
+                while (tree.move("p1", 500, 0)) {
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
+                foot.draw();
+                tree.snapshot("p2", 500, 0, 610, 680);
+
+                canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+                canvas.css("background", "#ffe");
+                $await(Jscex.Async.sleep(300));
+                canvas.css("background", "none");
+            }));
+
+            var jumpAnimate = eval(Jscex.compile("async", function () {
+                while (true) {
+                    tree.ctx.clearRect(0, 0, width, height);
+                    tree.jump();
+                    foot.draw();
+                    $await(Jscex.Async.sleep(25));
+                }
+            }));
+
+            var textAnimate = eval(Jscex.compile("async", function () {
+                var together = new Date();
+                together.setFullYear(2023, 10, 23);
+                together.setHours(0);
+                together.setMinutes(0);
+                together.setSeconds(0);
+                together.setMilliseconds(0);
+
+                $("#code").show().typewriter();
+                $("#clock-box").fadeIn(500);
+
+                setTimeout(function () {
+                    gsap.to(".next-stage-btn-container", { opacity: 1, visibility: 'visible', duration: 1 });
+                }, 5000);
+
+                while (true) {
+                    timeElapse(together);
+                    $await(Jscex.Async.sleep(1000));
+                }
+            }));
+
+            var runAsync = eval(Jscex.compile("async", function () {
+                $await(seedAnimate());
+                $await(growAnimate());
+                $await(flowAnimate());
+                $await(moveAnimate());
+
+                textAnimate().start();
+
+                $await(jumpAnimate());
+            }));
+
+            runAsync().start();
+        })();
+    </script>
+</body>
+
+</html>
